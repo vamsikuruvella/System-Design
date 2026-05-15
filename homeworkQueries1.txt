@@ -1,0 +1,13 @@
+List all department names that currently have no employees.
+
+
+Calculate the average salary for each department, but only include departments that have more than one employee.
+
+
+Find the name of the department with the highest average salary.
+
+
+List the names and salaries of all employees who earn more than the average salary of their respective department.
+
+
+Find the employee (first and last name) who was hired most recently in each department.
