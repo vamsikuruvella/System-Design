@@ -60,14 +60,14 @@ async function startGame() {
         }
         if(b.checkCol(i,j)||b.checkRow(i,j)||b.checkDiag(i,j)){
             b.printBoard();
-            console.log(cur_player.getName()+" won !!!!!!");
+            console.log(cur_player.getName()+" won !!!!!! 🥳");
             continueGame = false;
             break;
         }
         cur_num++;
 
     }
-    
+    console.log("Game result is draw ☹️")
     rl.close();
 }
 
