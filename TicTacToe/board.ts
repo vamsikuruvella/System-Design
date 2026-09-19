@@ -1,9 +1,11 @@
 // import Symbols from "./sysmbols.ts";
 
+import { error } from "console";
+
 class Board {
     public size: number;
     private board: string[][] = [];
-    private populate:number;
+    private populate: number;
 
     constructor(size: number) {
         this.size = size;
@@ -16,31 +18,41 @@ class Board {
         for (let i = 0; i < this.size; i++) {
             for (let j = 0; j < this.size; j++) {
                 if (this.board[i]) {
-                    this.board[i].push(""+c);
+                    this.board[i].push("" + c);
 
                 } else {
-                    this.board[i] = [""+c];
+                    this.board[i] = ["" + c];
                 }
                 c++;
             }
         }
     }
-    placeSymbol(i:number,j:number,sym:string){
-        if(this.board[i][j]=="x"||this.board[i][j]=="o"){
+    placeSymbol(i: number, j: number, sym: string) {
+        if (this.board[i][j] == "x" || this.board[i][j] == "o") {
             return false;
         }
-        this.board[i][j]=sym;
+        this.board[i][j] = sym;
         this.populate++;
         return true;
     }
 
-    isFull(){
-        return this.populate===this.size*this.size;
+    isFull() {
+        return this.populate === this.size * this.size;
     }
 
     printBoard() {
-        for (let i = 0; i < this.size; i++) {
-            console.log(this.board[i].join(" | "));
+        try {
+            // console.log(this.board);
+            if (!this.board.length) {
+                throw new Error("Board is Empty");
+            }
+            for (let i = 0; i < this.size; i++) {
+                console.log(this.board[i].join(" | "));
+            }
+        } catch (ex) {
+            if (ex instanceof Error) {
+                console.log("Error: " + ex.message);
+            }
         }
     }
     checkRow(i: number, j: number) {
